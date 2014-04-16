@@ -1031,7 +1031,10 @@ package feathers.layout
 						}
 						case HORIZONTAL_ALIGN_CENTER:
 						{
-							item.x = boundsX + this._paddingLeft + (availableWidth - this._paddingLeft - this._paddingRight - item.width) / 2;
+							item.x = boundsX + this._paddingLeft;
+							if (availableWidth > this._paddingLeft + this._paddingRight + item.width) {
+								item.x += (availableWidth - this._paddingLeft - this._paddingRight - item.width) / 2;
+							}
 							break;
 						}
 						default: //left

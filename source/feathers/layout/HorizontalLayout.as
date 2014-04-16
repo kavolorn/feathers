@@ -1030,7 +1030,10 @@ package feathers.layout
 						}
 						case VERTICAL_ALIGN_MIDDLE:
 						{
-							item.y = boundsY + this._paddingTop + (availableHeight - this._paddingTop - this._paddingBottom - item.height) / 2;
+							item.y = boundsY + this._paddingTop;
+							if (availableHeight > this._paddingTop + this._paddingBottom + item.height) {
+								item.y += (availableHeight - this._paddingTop - this._paddingBottom - item.height) / 2;
+							}
 							break;
 						}
 						default: //top
